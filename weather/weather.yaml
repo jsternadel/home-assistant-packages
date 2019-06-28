@@ -14,14 +14,16 @@ sensor:
       weekday:
         friendly_name: 'Weekday'
         value_template: '{{ now().strftime("%A") }}'
+        entity_id:
+          - sensor.date
       forecast_0:
         friendly_name: "Today"
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_0d
-          - sensor.dark_sky_daily_low_temperature_0d
+          - sensor.dark_sky_daytime_high_temperature_0d
+          - sensor.dark_sky_overnight_low_temperature_0d
           - sensor.dark_sky_precip_probability_0d
         value_template: >
-          {{states.sensor.dark_sky_daily_high_temperature_0d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_0d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_0d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_0d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_0d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_0d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_0d", "clear-day") %}
             mdi:weather-sunny
@@ -49,11 +51,11 @@ sensor:
       forecast_1:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400)) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_1d
-          - sensor.dark_sky_daily_low_temperature_1d
+          - sensor.dark_sky_daytime_high_temperature_1d
+          - sensor.dark_sky_overnight_low_temperature_1d
           - sensor.dark_sky_precip_probability_1d
         value_template: >          
-          {{states.sensor.dark_sky_daily_high_temperature_1d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_1d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_1d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_1d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_1d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_1d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_1d", "clear-day") %}
             mdi:weather-sunny
@@ -82,11 +84,11 @@ sensor:
       forecast_2:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *2) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_2d
-          - sensor.dark_sky_daily_low_temperature_2d
+          - sensor.dark_sky_daytime_high_temperature_2d
+          - sensor.dark_sky_overnight_low_temperature_2d
           - sensor.dark_sky_precip_probability_2d
         value_template: >          
-          {{states.sensor.dark_sky_daily_high_temperature_2d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_2d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_2d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_2d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_2d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_2d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_2d", "clear-day") %}
             mdi:weather-sunny
@@ -115,11 +117,11 @@ sensor:
       forecast_3:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *3) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_3d
-          - sensor.dark_sky_daily_low_temperature_3d
+          - sensor.dark_sky_daytime_high_temperature_3d
+          - sensor.dark_sky_overnight_low_temperature_3d
           - sensor.dark_sky_precip_probability_3d
         value_template: >          
-          {{states.sensor.dark_sky_daily_high_temperature_3d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_3d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_3d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_3d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_3d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_3d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_3d", "clear-day") %}
             mdi:weather-sunny
@@ -148,11 +150,11 @@ sensor:
       forecast_4:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *4) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_4d
-          - sensor.dark_sky_daily_low_temperature_4d
+          - sensor.dark_sky_daytime_high_temperature_4d
+          - sensor.dark_sky_overnight_low_temperature_4d
           - sensor.dark_sky_precip_probability_4d
         value_template: >          
-          {{states.sensor.dark_sky_daily_high_temperature_4d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_4d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_4d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_4d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_4d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_4d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_4d", "clear-day") %}
             mdi:weather-sunny
@@ -181,11 +183,11 @@ sensor:
       forecast_5:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *5) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_5d
-          - sensor.dark_sky_daily_low_temperature_5d
+          - sensor.dark_sky_daytime_high_temperature_5d
+          - sensor.dark_sky_overnight_low_temperature_5d
           - sensor.dark_sky_precip_probability_5d
         value_template: >
-          {{states.sensor.dark_sky_daily_high_temperature_5d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_5d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_5d.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_5d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_5d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_5d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_5d", "clear-day") %}
             mdi:weather-sunny
@@ -214,11 +216,11 @@ sensor:
       forecast_6:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *6) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_6d
-          - sensor.dark_sky_daily_low_temperature_6d
+          - sensor.dark_sky_daytime_high_temperature_6d
+          - sensor.dark_sky_overnight_low_temperature_6d
           - sensor.dark_sky_precip_probability_6d
         value_template: >          
-            {{states.sensor.dark_sky_daily_high_temperature_6d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_6d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_6d.state|round(0)}}%
+            {{states.sensor.dark_sky_daytime_high_temperature_6d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_6d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_6d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_6d", "clear-day") %}
             mdi:weather-sunny
@@ -247,11 +249,11 @@ sensor:
       forecast_7:
         friendly_name_template: '{{ (as_timestamp(now()) + (86400) *7) | timestamp_custom("%A", True) }}'
         entity_id:
-          - sensor.dark_sky_daily_high_temperature_7d
-          - sensor.dark_sky_daily_low_temperature_7d
+          - sensor.dark_sky_daytime_high_temperature_7d
+          - sensor.dark_sky_overnight_low_temperature_7d
           - sensor.dark_sky_precip_probability_7d
         value_template: >
-            {{states.sensor.dark_sky_daily_high_temperature_7d.state|round(0)}}°/{{states.sensor.dark_sky_daily_low_temperature_7d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_7d.state|round(0)}}%
+            {{states.sensor.dark_sky_daytime_high_temperature_7d.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_7d.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_7d.state|round(0)}}%
         icon_template: >-
           {% if is_state("sensor.dark_sky_icon_7d", "clear-day") %}
             mdi:weather-sunny
@@ -291,17 +293,17 @@ group:
     view: no
     entities:
       - sun.sun
+      - sensor.dark_sky_moon_phase_0d
       - sensor.season
       - sensor.dark_sky_summary
       - sensor.dark_sky_precip
-      - sensor.dark_sky_precip_type
       - sensor.dark_sky_precip_intensity
       - sensor.dark_sky_precip_probability
       - sensor.dark_sky_temperature
       - sensor.dark_sky_apparent_temperature
       - sensor.dark_sky_wind_speed
       - sensor.dark_sky_wind_bearing
-      - sensor.dark_sky_cloud_cover
+      - sensor.dark_sky_cloud_coverage
       - sensor.dark_sky_humidity
   weather_forecast:
     name: Forecast
